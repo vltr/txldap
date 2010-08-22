@@ -1,7 +1,7 @@
 txldap
 ======
 
-txldap is a Twisted wrapper for python-ldap.
+txldap is a Twisted wrapper for [python-ldap][docs].
 
 ### Requirements
 
@@ -11,3 +11,5 @@ txldap is a Twisted wrapper for python-ldap.
 ### Licenses
 
 This work is licensed under the MIT License (see the LICENSE file).
+
+[docs]: http://www.python-ldap.org/doc/html/ldap.html "python-ldap documentation"
