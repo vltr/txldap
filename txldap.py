@@ -9,10 +9,13 @@ from twisted.internet import threads
 class Connection(object):
 
     def __init__(self, uri, *args, **kwargs):
-        self.debug = kwargs.pop('debug', False)
+        debug = kwargs.pop('debug', False)
+        timeout = kwargs.pop('timeout', 5)
         self._ldap = initialize(uri, *args, **kwargs)
-        if self.debug:
-            self._ldap.set_option(ldap.OPT_DEBUG_LEVEL, 255)
+        if debug:
+            self._ldap.set_option(OPT_DEBUG_LEVEL, 255)
+        if timeout:
+            self._ldap.set_option(OPT_TIMEOUT, timeout)
 
     def add(self, *args, **kwargs):
         return threads.deferToThread(self._ldap.add_ext_s, *args, **kwargs)
