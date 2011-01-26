@@ -3,7 +3,12 @@
 #
 # This file is subject to the MIT License (see LICENSE file).
 
+import ldif
+import ldapurl
 from ldap import *
+from ldap import filter
+from ldap import modlist
+from ldap import schema
 from twisted.internet import threads
 
 class Connection(object):
