@@ -17,7 +17,7 @@ setup(
     py_modules=['txldap'],
     classifiers=[
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: MIT',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: Unix',
         'Operating System :: POSIX',
         'Programming Language :: Python',
