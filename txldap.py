@@ -1,4 +1,4 @@
-# Copyright (c) 2010, Silas Sewell
+# Copyright (c) 2010-2011, Silas Sewell
 # All rights reserved.
 #
 # This file is subject to the MIT License (see LICENSE file).
@@ -15,7 +15,7 @@ class Connection(object):
 
     def __init__(self, uri, *args, **kwargs):
         debug = kwargs.pop('debug', False)
-        timeout = kwargs.pop('timeout', 5)
+        timeout = kwargs.pop('timeout', 0)
         self._ldap = initialize(uri, *args, **kwargs)
         if debug:
             self._ldap.set_option(OPT_DEBUG_LEVEL, 255)
