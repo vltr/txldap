@@ -11,6 +11,8 @@ from ldap import modlist
 from ldap import schema
 from twisted.internet import threads
 
+__version__ = '0.1.0'
+
 class Connection(object):
 
     def __init__(self, uri, *args, **kwargs):
