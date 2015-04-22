@@ -6,3 +6,5 @@
 *swp
 _trial_temp
 build
+.python-version
+example.py

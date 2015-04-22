@@ -1,20 +1,28 @@
+# -*- coding: utf-8 -*-
+
 from distutils.core import setup
-from txldap import __version__
+
 
 long_description = """
-txldap is a Twisted wrapper for python-ldap.
+txldapv2 is a Twisted wrapper for python-ldap.
 """
 
 setup(
-    name='txldap',
-    version=__version__,
+    name='txldapv2',
+    version='0.2.0',
     description='Twisted wrapper for python-ldap',
     long_description=long_description.strip(),
     author='Silas Sewell',
     author_email='silas@sewell.ch',
+    maintainer='Richard Kuesters',
+    maintainer_email='rkuesters@gmail.com',
     license='MIT',
-    url='https://github.com/silas/txldap',
-    py_modules=['txldap'],
+    url='https://github.com/vltr/txldapv2',
+    py_modules=['txldapv2'],
+    install_requires=[
+        'twisted',
+        'python-ldap'
+    ],
     classifiers=[
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
@@ -22,6 +30,7 @@ setup(
         'Operating System :: POSIX',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
         'Topic :: Software Development',
         'Topic :: Software Development :: Libraries',
         'Topic :: Software Development :: Libraries :: Python Modules',

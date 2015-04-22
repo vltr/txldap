@@ -1,21 +1,23 @@
+# -*- coding: utf-8 -*-
+
 # Copyright (c) 2010-2011, Silas Sewell
 # All rights reserved.
 #
 # This file is subject to the MIT License (see LICENSE file).
 
-import ldif
-import ldapurl
 from ldap import *
-from ldap import filter
-from ldap import modlist
-from ldap import schema
 from twisted.internet import threads
 
-__version__ = '0.1.0'
+
+__version__ = '0.2.0'
+
 
 class Connection(object):
 
-    def __init__(self, uri, *args, **kwargs):
+    def __init__(self, host, *args, **kwargs):
+        scheme = 'ldaps' if kwargs.pop('ldaps', False) else 'ldap'
+        port = kwargs.pop('port', 389)
+        uri = "%s://%s:%s" % (scheme, host, port)
         debug = kwargs.pop('debug', False)
         timeout = kwargs.pop('timeout', 0)
         self._ldap = initialize(uri, *args, **kwargs)
@@ -23,6 +25,8 @@ class Connection(object):
             self._ldap.set_option(OPT_DEBUG_LEVEL, 255)
         if timeout:
             self._ldap.set_option(OPT_TIMEOUT, timeout)
+        if port:
+            self._ldap.set_option(PORT, port)
 
     def add(self, *args, **kwargs):
         return threads.deferToThread(self._ldap.add_ext_s, *args, **kwargs)
